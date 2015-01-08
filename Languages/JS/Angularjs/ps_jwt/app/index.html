@@ -10,9 +10,11 @@
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
+   <link rel="stylesheet" href="styles/bootstrap.css" />
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 	
@@ -48,6 +50,7 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -56,6 +59,9 @@
 	<script src="scripts/app.config.js"></script>
   <script src="scripts/controllers/main.js"></script>
 	
+  <script src="scripts/directives/validateEquals.js"></script>
+  <script src="scripts/controllers/register.js"></script>
+  <script src="scripts/services/alert.js"></script>
   <!-- endbuild -->
 	
 </head>
@@ -66,21 +72,20 @@
     <![endif]-->
 
   <!-- Add your site or application content here -->
-  <div class="container">
+  <div class="container" ng-cloak>
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li><a ng-href="#/" ui-ref-active="active">Home</a>
+        <li ui-sref-active="active"><a ui-sref="main" >Home</a>
         </li>
-        <li><a ng-href="#/register" ui-sref-active="active">Register</a>
+        <li ui-sref-active="active"><a ui-sref="register">Register</a>
         </li>
       </ul>
       <h3 class="text-muted">psJwt</h3>
     </div>
 
     <div ui-view></div>
-
+    <div class="alert alert-{{alert.type}} animated main-alert" ng-class="{'flipInY': alert.show, 'flipOutY': !alert.show, 'alert-hidden': !alert.hasBeenShown}"><strong ng-bind="alert.title"></strong>{{alert.message}}</div>
     <div class="footer">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
     </div>
   </div>
 
