@@ -1,0 +1,11 @@
+<div class="header" ng-controller="HeaderCtrl">
+  <ul class="nav nav-pills pull-right">
+    <li ui-sref-active="active"><a ui-sref="main">Home</a>
+    </li>
+    <li ng-hide="isAuthenticated()" ui-sref-active="active"><a ui-sref="register">Register</a>
+    </li>
+    <li ng-show="isAuthenticated()" ui-sref-active="active"><a ui-sref="logout">LogOut</a>
+    </li>
+  </ul>
+  <h3 class="text-muted">psJwt</h3>
+</div>

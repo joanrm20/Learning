@@ -7,9 +7,9 @@ exports.encode = function (payload, secret) {
     alg: algorithm
   };
 
-  var jwt = base64Encode(header) + '.' + base64Encode(payload);
+  var jwt = base64Encode(JSON.stringify(header)) + '.' + base64Encode(JSON.stringify(payload));
 
-  jwt += '.' + sign(jwt, secret);
+  return jwt + '.' + sign(jwt, secret);
 
 }
 
@@ -18,5 +18,5 @@ function sign(str, key) {
 }
 
 function base64Encode(str) {
-  return new Buffer(str)..toString('base64');
+  return new Buffer(str).toString('base64');
 }
