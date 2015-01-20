@@ -1,56 +1,93 @@
 .form-signin {
-    max-width: 280px;
-    padding: 15px;
-    margin: 0 auto;
-      margin-top:50px;
-  }
-  .form-signin .form-signin-heading, .form-signin {
-    margin-bottom: 10px;
-  }
-  .form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .form-signin .form-control:focus {
-    z-index: 2;
-  }
-  .form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: none;
-    border-left-style: solid;
-  }
+  max-width: 280px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.form-signin .form-signin-heading,
+.form-signin {
+  margin-bottom: 10px;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+}
 .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: none;
-    border-left-style: solid;
-  }
-
-  .form-signin input[type="password"] {
-    margin-bottom: -1px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top-style: none;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-  }
-.main-alert{
- max-width: 400px;
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+}
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-style: none;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+}
+.main-alert {
+  position: absolute;
+  top: 70px;
+  left:5px;
+  right: 5px;
+  max-width: 400px;
   margin: 0 auto;
 }
-.alert-hidden{
-visibility: hidden;
+.alert-hidden {
+  visibility: hidden;
+}
+.ui-view-container {
+  position: relative;
+}
+[ui-view].ng-enter,
+[ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+}
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform: scale3d(0.960.961, 0.96);
+  -moz-transform: scale3d(0.96, 0.96, 0.96);
+  transform: scale3d(0.96, 0.96, 0.96);
+}
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+[ui-view].ng-leave {
+  opacity: 1;
+  -webkit-transform: scale3d(0, 0, 0);
+  -moz-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
+}
+[ui-view].ng-leave-actve {
+  opacity: 0;
 }

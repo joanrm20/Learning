@@ -10,7 +10,7 @@
 	 * Main module of the application.
 	 */
 	angular
-		.module('psJwtApp', ['ui.router','ngMessages']);
+		.module('psJwtApp', ['ui.router','ngMessages','ngAnimate']);
 
 
 }());

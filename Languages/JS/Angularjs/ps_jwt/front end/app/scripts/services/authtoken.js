@@ -5,7 +5,7 @@ angular.module('psJwtApp')
     //cached token allow us to have the token in memory, just as
     // little optimization to not access the token that is save on local storage.
     var storage = $window.localStorage,
-      cachedToken,userToken='userToken';
+      cachedToken, userToken = 'userToken';
     // Public API here
     var authToken = {
       setToken: function (token) {
@@ -13,20 +13,21 @@ angular.module('psJwtApp')
         storage.setItem(userToken, token);
       },
       getToken: function () {
-        if (!cachedToken)
+        if (!cachedToken) {
           cachedToken = storage.getItem(userToken);
+        }
 
         return cachedToken;
       },
       isAuthenticated: function () {
         return !!authToken.getToken();
       },
-      removeToken : function(){
-        cachedToken= null;
+      removeToken: function () {
+        cachedToken = null;
         storage.removeItem(userToken);
       }
 
     };
-  
-  return authToken;
+
+    return authToken;
   });

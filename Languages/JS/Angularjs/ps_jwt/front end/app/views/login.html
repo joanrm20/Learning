@@ -1,5 +1,5 @@
 <form name="register" class="form-signin" novalidate ng-submit="submit()">
-  <h1 class="form-signin-heading text-muted">Register</h1>
+  <h1 class="form-signin-heading text-muted">Login</h1>
 
   <input name="email" ng-model="email" type="email" class="form-control" placeholder="Email address" required>
   <div class="help-block" ng-messages="register.email.$error" ng-if="register.email.$dirty" ng-messages-include="form-messages">
@@ -8,23 +8,13 @@
   <input name="password" ng-model="password" type="password" class="form-control" placeholder="Password" required>
 
   <div class="help-block" ng-if="register.confirm.$dirty" ng-messages="register.password.$error" ng-messages-include="form-messages"></div>
-
-  <input name="password_confirm" ng-model="password_confirm" type="password" class="form-control" placeholder="Confirm Password" match-validator="password" required>
-
-  <div class="help-block" ng-if="register.password_confirm.$dirty" ng-messages="register.password_confirm.$error" ng-messages-include="form-messages">
-    <div ng-message="match">This password does not match the password entered before</div>
-  </div>
-
   <button ng-disabled="register.$invalid" class="btn btn-lg btn-primary btn-block" type="submit">
-    Submit
+    Login
   </button>
-  
+  <br>
+  <a class="text-muted pull-right" ui-sref="register">Create Account</a>
 </form>
-
 <script type="text/ng-template" id="form-messages">
   < div ng-message = "required"> This field cannot be blank </div>
   <div ng-message="email">You have entered an incorrect email value</div >
-    < div ng - message = "password-characters" >
-    Your password must consist of alphabetical or numeric characters.
-  It must also contain at least one special character, a number as well as an uppercase letter. < /div>
 </script>

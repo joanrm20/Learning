@@ -1,28 +1,12 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name psJwtApp.controller:RegisterCtrl
- * @description
- * # RegisterCtrl
- * Controller of the psJwtApp
- */
 angular.module('psJwtApp')
-  .controller('RegisterCtrl', function ($scope, $http, alert, authToken) {
-
-
+  .controller('RegisterCtrl', function ($scope,auth, alert) {
     $scope.submit = function () {
-      var url = 'http://localhost:3000/register',
-        user = {
-          email: $scope.email,
-          password: $scope.password
-        };
 
-      console.log(user);
-      $http.post(url, user)
+    auth.register($scope.email, $scope.password)
         .success(function (res) {
-          authToken.setToken(res.token);
-          alert('success', 'ok!', 'You are now registered');
+          alert('success', 'Account Created!', 'Welcome ' + res.user.email + ' !');
         })
         .error(function (err) {
           alert('warning', 'Opps!', 'Could not register');
