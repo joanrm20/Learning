@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F829CA511A94DBD200F226EA /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F829CA501A94DBD200F226EA /* LogItem.swift */; };
 		F82BA5441A93FD31003FD84B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BA5431A93FD31003FD84B /* AppDelegate.swift */; };
 		F82BA5471A93FD31003FD84B /* MyLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F82BA5451A93FD31003FD84B /* MyLog.xcdatamodeld */; };
 		F82BA5491A93FD31003FD84B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82BA5481A93FD31003FD84B /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F829CA501A94DBD200F226EA /* LogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
 		F82BA53E1A93FD31003FD84B /* MyLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82BA5421A93FD31003FD84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F82BA5431A93FD31003FD84B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				F82BA54D1A93FD31003FD84B /* Images.xcassets */,
 				F82BA54F1A93FD31003FD84B /* LaunchScreen.xib */,
 				F82BA5451A93FD31003FD84B /* MyLog.xcdatamodeld */,
+				F829CA501A94DBD200F226EA /* LogItem.swift */,
 				F82BA5411A93FD31003FD84B /* Supporting Files */,
 			);
 			path = MyLog;
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82BA5491A93FD31003FD84B /* ViewController.swift in Sources */,
+				F829CA511A94DBD200F226EA /* LogItem.swift in Sources */,
 				F82BA5471A93FD31003FD84B /* MyLog.xcdatamodeld in Sources */,
 				F82BA5441A93FD31003FD84B /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				F82BA5621A93FD32003FD84B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F82BA5631A93FD32003FD84B /* Build configuration list for PBXNativeTarget "MyLogTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				F82BA5651A93FD32003FD84B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

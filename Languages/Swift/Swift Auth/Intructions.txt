@@ -7,3 +7,4 @@ for the next wednesday meeting. I
 
 
    	
+Because of the way Swift modules work, we need to add one modification to the core data model. In the field “Class” under the data model inspector for an entity,we need to specify the project name as a prefix to the class name. So instead of just specifying “MyEntity” as the class, it needs to say “MyProject.MyEntity”, assuming your app is called “MyProject”.
