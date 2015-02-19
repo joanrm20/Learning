@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Selfie
-//
-//  Created by Behera, Subhransu on 29/8/14.
-//  Copyright (c) 2014 subhb.org. All rights reserved.
-//
 
 import UIKit
 
@@ -126,6 +119,20 @@ class ViewController: UIViewController {
     if self.signupPasswordTextField.isFirstResponder() {
       self.signupPasswordTextField.resignFirstResponder()
     }
+    
+    // start activity indicator
+    self.activityIndicatorView.hidden = false;
+    
+    //validate presence of all required parameters
+    if countElements(self.signupNameTextField.text) > 0 && countElements(self.signupEmailTextField.text) > 0
+        && countElements(self.signupPasswordTextField.text)>0{
+        
+        makeSignUpRequest(self.signupNameTextField.text, userEmail: self.signupEmailTextField.text, userPassword: self.signupPasswordTextField.text)
+            
+    }
+    else{
+        self.displayAlertMessage("Parameter Required", alertDescription: "Some of the required parameters are missing")
+    }
   }
   
   @IBAction func signinBtnTapped(sender: AnyObject) {
@@ -137,17 +144,110 @@ class ViewController: UIViewController {
     if self.signinPasswordTextField.isFirstResponder() {
       self.signinPasswordTextField.resignFirstResponder()
     }
+    
+    
+    //display activity indicator
+    self.activityIndicatorView.hidden = false
+    
+    // validate presense of the required parameters
+    var email = self.signinEmailTextField.text,
+        password = self.signinPasswordTextField.text
+    
+    if countElements(email) > 0 && countElements(password) > 0{
+       makeSignInRequest(email, userPassword: password)
+    }
+    else{
+    self.displayAlertMessage("Parameters Required", alertDescription: "some of the required parameters are missing")
+        
+    }
+    
   }
   
   func updateUserLoggedInFlag() {
+    // Update the NSUserDefaults flag
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setObject("loggedIn", forKey: "userLoggedIn")
+    defaults.synchronize()
+    
   }
   
   func saveApiTokenInKeychain(tokenDict:NSDictionary) {
+    //Store the API Authtoken and Authtoken expiry date in KeyChain
+    tokenDict.enumerateKeysAndObjectsUsingBlock({(dictKey, dictObj, stopBool) -> Void in
+        var myKey = dictKey as NSString,
+        myObj = dictObj as NSString
+        
+        if myKey == "api_authtoken" {
+            KeychainAccess.setPassword(myObj, account: "Auth_Token", service: "KeyChainService")
+        }
+        
+        if myKey == "authtoken_expiry" {
+            KeychainAccess.setPassword(myObj, account: "Auth_Token_Expiry", service: "KeyChainService")
+        }
+    
+    })
+    self.dismissViewControllerAnimated(true, completion: nil)
+    
   }
   
   func makeSignUpRequest(userName:String, userEmail:String, userPassword:String) {
+    // 1. Create  HTTP request an set request header
+    let httpRequest = httpHelper.buildRequest("signup", method: "POST", authType: HTTPRequestAuthType.HTTPBasicAuth)
+    
+    //2. Password encrypted with the API key
+    let encrypted_password = AESCrypt.encrypt(userPassword, password: HTTPHelper.API_AUTH_PASSWORD)
+    
+    //3. Send the request Body
+    httpRequest.HTTPBody = "{\"full_name\":\"\(userName)\",\"email\":\"\(userEmail)\",\"password\":\"\(encrypted_password)\"}".dataUsingEncoding(NSUTF8StringEncoding)
+    
+    //4. Send the request
+    httpHelper.sendRequest(httpRequest, completion: {(data: NSData!, error:NSError!) in
+        if error != nil{
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            
+            return
+        }
+        self.displaSigninView()
+        self.displayAlertMessage("Success", alertDescription: "Account has been created")
+        
+    })
+    
+    
+    
+    
+    
+    
   }
   
-  func makeSignInRequest(userEmail:String, userPassword:String) {   
+  func makeSignInRequest(userEmail:String, userPassword:String) {
+    // Create HTTP request and set request body
+    let httpRequest = httpHelper.buildRequest("signin", method: "POST", authType: HTTPRequestAuthType.HTTPBasicAuth)
+    let encrypted_password = AESCrypt.encrypt(userPassword, password: HTTPHelper.API_AUTH_PASSWORD)
+    
+    httpRequest.HTTPBody = "{\"email\":\"\(self.signinEmailTextField.text)\",\"password\":\"\(encrypted_password)\"}".dataUsingEncoding(NSUTF8StringEncoding);
+    httpHelper.sendRequest(httpRequest, completion: {(data:NSData!,error:NSError!) in
+        if error == nil{
+            let errorMessage = self.httpHelper.getErrorMessage(error)
+            self.displayAlertMessage("Error", alertDescription: errorMessage)
+            return
+        }
+        // hide activity indicator and update userLoggedFlag
+        self.activityIndicatorView.hidden=true
+        self.updateUserLoggedInFlag()
+        
+        var jsonerror:NSError?
+        let responseDict = NSJSONSerialization.JSONObjectWithData(data,
+            options: NSJSONReadingOptions.AllowFragments, error:&jsonerror) as NSDictionary
+        var stopBool : Bool
+        
+        
+        //Save API Authtoken and ExpiryDate in Keychain
+        
+        self.saveApiTokenInKeychain(responseDict)
+        
+        
+    })
+    
   }
 }
