@@ -10,11 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
-
+    
+    var uiitmot: Bool = false
+    
     @IBAction func appendDigit(sender: UIButton) {
-        let digit = sender.currentTitle
+        let digit = sender.currentTitle!
+        if  uiitmot {
+            display.text = display.text! + digit
+            
+        }
+        else{
+            uiitmot=true
+            display.text = digit
+            
+        }
         
     }
+    
+    
+    @IBAction func enter() {
+        uiitmot = false
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,4 +46,5 @@ class ViewController: UIViewController {
 
 
 }
+
 
