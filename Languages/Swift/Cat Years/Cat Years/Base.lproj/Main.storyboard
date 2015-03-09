@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,24 +17,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cat Years" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bU-w2-HXz">
-                                <rect key="frame" x="271" y="20" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Years" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bU-w2-HXz">
+                                <rect key="frame" x="263" y="20" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxx-8c-AGQ">
-                                <rect key="frame" x="125" y="49" width="459" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your cat's age, in years" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxx-8c-AGQ">
+                                <rect key="frame" x="188" y="49" width="223" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Eq-K6-NZA">
+                                <rect key="frame" x="252" y="133" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="e26-pl-683"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WX-JG-NB8">
+                                <rect key="frame" x="279" y="387" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtv-Ht-Yhc">
+                                <rect key="frame" x="270" y="257" width="61" height="30"/>
+                                <state key="normal" title="Find Age">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findAge:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="frb-bb-Lz8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Wtv-Ht-Yhc" firstAttribute="top" secondItem="0Eq-K6-NZA" secondAttribute="bottom" constant="94" id="AVk-HA-OlL">
+                                <variation key="widthClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1WX-JG-NB8" secondAttribute="bottom" constant="192" id="Geo-7C-yJS">
+                                <variation key="widthClass=compact" constant="284"/>
+                            </constraint>
+                            <constraint firstItem="1WX-JG-NB8" firstAttribute="top" secondItem="Wtv-Ht-Yhc" secondAttribute="bottom" constant="100" id="J10-z6-cVV">
+                                <variation key="widthClass=compact" constant="94"/>
+                            </constraint>
+                            <constraint firstItem="Xxx-8c-AGQ" firstAttribute="top" secondItem="2bU-w2-HXz" secondAttribute="bottom" constant="8" symbolic="YES" id="LhS-Qz-zHk"/>
+                            <constraint firstItem="1WX-JG-NB8" firstAttribute="top" secondItem="Wtv-Ht-Yhc" secondAttribute="bottom" constant="94" id="Lub-3d-e6F"/>
+                            <constraint firstItem="0Eq-K6-NZA" firstAttribute="centerX" secondItem="2bU-w2-HXz" secondAttribute="centerX" id="Nlr-BB-hfs"/>
+                            <constraint firstItem="0Eq-K6-NZA" firstAttribute="top" secondItem="Xxx-8c-AGQ" secondAttribute="bottom" constant="63" id="OFu-47-LhT"/>
                             <constraint firstAttribute="centerX" secondItem="2bU-w2-HXz" secondAttribute="centerX" id="Wbu-Ti-Lga"/>
+                            <constraint firstItem="1WX-JG-NB8" firstAttribute="centerX" secondItem="Wtv-Ht-Yhc" secondAttribute="centerX" id="Zgh-jE-EkK"/>
+                            <constraint firstItem="2bU-w2-HXz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="eNC-Uw-ND7"/>
+                            <constraint firstItem="Xxx-8c-AGQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="188" id="nUc-mR-m0g">
+                                <variation key="widthClass=compact" constant="89"/>
+                            </constraint>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Wtv-Ht-Yhc" secondAttribute="bottom" constant="313" id="pDz-t6-2te"/>
+                            <constraint firstAttribute="centerY" secondItem="1WX-JG-NB8" secondAttribute="centerY" constant="-97.5" id="twb-9O-2C3">
+                                <variation key="widthClass=compact" constant="-5.5"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xxx-8c-AGQ" secondAttribute="trailing" constant="72" id="ysc-Mu-EPS"/>
+                            <constraint firstAttribute="centerX" secondItem="Wtv-Ht-Yhc" secondAttribute="centerX" constant="-0.5" id="zq9-rC-Ie6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ysc-Mu-EPS"/>
+                                <exclude reference="Lub-3d-e6F"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ysc-Mu-EPS"/>
+                                <exclude reference="J10-z6-cVV"/>
+                                <include reference="Lub-3d-e6F"/>
+                                <exclude reference="twb-9O-2C3"/>
+                                <exclude reference="Geo-7C-yJS"/>
+                                <exclude reference="pDz-t6-2te"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="age" destination="0Eq-K6-NZA" id="aY3-Zs-9mn"/>
+                        <outlet property="result" destination="1WX-JG-NB8" id="1wY-2k-XM6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
