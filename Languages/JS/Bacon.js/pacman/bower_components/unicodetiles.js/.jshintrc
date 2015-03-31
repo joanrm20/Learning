@@ -1,7 +1,0 @@
-{
-	"predef": [ "console" ],
-	"browser": true,
-	"newcap": true,
-	"undef": false,
-	"trailing": true
-}
