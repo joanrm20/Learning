@@ -18,6 +18,7 @@ enum HTTPRequestContentType {
   case HTTPMultipartContent
 }
 
+
 struct HTTPHelper {
   static let API_AUTH_NAME = "joanrm20"
   static let API_AUTH_PASSWORD = "6B6ms94dfhsnagi72wui2vbytta93"
@@ -157,4 +158,3 @@ struct HTTPHelper {
     return errorMessage
   }
 }
-

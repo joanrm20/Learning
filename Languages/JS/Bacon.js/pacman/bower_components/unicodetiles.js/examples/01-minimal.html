@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Minimal Example</title>
+	<link href="../unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<link href="../docs/style.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="../unicodetiles/unicodetiles.js"></script>
+	<script src="../unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="../unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="../unicodetiles/ut.DOMRenderer.js"></script>
+	<script>
+		var term; // Can't be initialized yet because DOM is not ready
+
+		// Called after HTML is loaded, initializes UnicodeTiles Viewport
+		// and displays something.
+		function start() {
+			term = new ut.Viewport(document.getElementById("game"), 45, 25);
+
+			term.clear();
+
+			term.putString("Hello world!", 0,0, 0,255,0);
+			term.putString("Some unicode chars: ", 0,2, 128,0,0, 0,32,0);
+			term.putString("☠☃⚙☻♞☭✈✟✂✯", 0,3, 0,0,255);
+
+			term.render();
+		}
+
+	</script> 
+</head>
+
+<body onload="start();">
+
+	<p class="centerer">You should see text and symbols below.</p>
+
+	<div class="centerer">
+		<div id="game">Enable JavaScript and reload the page.</div>
+	</div>
+
+	<a class="backlink" href="index.html">&lt;-- Back to index</a>
+
+</body>
+</html>

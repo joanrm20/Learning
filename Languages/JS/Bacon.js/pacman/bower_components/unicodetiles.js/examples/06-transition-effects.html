@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Transition Effects</title>
+	<link href="../unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<link href="../docs/style.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="../unicodetiles/unicodetiles.js"></script>
+	<script src="../unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="../unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="../unicodetiles/ut.DOMRenderer.js"></script>
+	<script src="../unicodetiles/input.js"></script>
+	<script src="renderer-switcher.js"></script>
+	<!-- We are extending the simple-dungeon example -->
+	<script src="simple-dungeon.js"></script> 
+	<script>
+		// Alternative tile function
+		function getAnotherTile(x, y) {
+			var t = "";
+			try { t = map[map.length - y - 1][x]; }
+			catch(err) { return ut.NULLTILE; }
+			if (t === '#') return WALL;
+			if (t === '.') return FLOOR;
+			return ut.NULLTILE;
+		}
+
+		var flipflop = false;
+		function doTransition() {
+			var effects = [ "boxin", "boxout", "circlein", "circleout", "random" ];
+			var effect = effects[Math.floor(Math.random()*effects.length)];
+			var duration = Math.floor(Math.random() * 1500) + 500;
+			flipflop = !flipflop;
+			if (flipflop) eng.setTileFunc(getAnotherTile, effect, duration);
+			else eng.setTileFunc(getDungeonTile, effect, duration);
+		}
+
+		function initEffect() {
+			setInterval(doTransition, 2500);
+			pl.x = 14; pl.y = 10;
+		}
+	</script>
+</head>
+
+<body onload="initSimpleDungeon(); initEffect(); createRendererSwitcher();">
+
+	<p class="centerer">Observe random transition effects.</p>
+
+	<div class="centerer">
+		<div id="game">Enable JavaScript and reload the page.</div>
+	</div>
+
+	<div class="centerer" id="renderer-switcher">
+		<!-- Populated by renderer-switcher.js -->
+	</div>
+
+	<a class="backlink" href="index.html">&lt;-- Back to index</a>
+
+</body>
+</html>

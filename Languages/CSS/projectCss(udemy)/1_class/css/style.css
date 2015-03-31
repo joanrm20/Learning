@@ -1,0 +1,190 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+#container {
+    width: 70%;
+    margin: 80px auto;
+    overflow: auto;
+    background: #fff;
+}
+.content-footer {
+    border-top: #ddd solid 1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.content-header {
+    border-bottom: #ddd solid 1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+p {
+    margin: 10px 0;
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 39px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    line-height: 1.23em;
+}
+
+h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+h4 {
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.clearfix {
+    clear: both;
+}
+
+header#main-header {
+    border-bottom: 4px solid #4ea0d8;
+}
+
+#logo {
+    margin: auto;
+    display: block;
+}
+
+#main-text {
+    text-align: center;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#sub-1 {
+    float: left;
+    width: 40%;
+}
+
+#sub-2 {
+    float: right;
+    width: 40%;
+}
+
+.points li {
+    margin-bottom: 30px;
+}
+
+.points img {
+    float: left;
+    margin-right: 7px;
+}
+
+.points h4 {
+    padding-top: 5px;
+}
+
+#contact-form {
+    padding: 10px 15px 15px 15px;
+    border: 4px solid #4ea0d8;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    overflow: auto;
+    background: #f4f4f4;
+}
+
+#contact-form div {
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+#contact-form input[type="text"] , #contact-form input[type="email"] {
+    border: #ccc 1px solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 25px;
+    width: 60%;
+}
+
+#contact-form input[type="submit"]{
+    padding: 20px 17px;
+    color: #ffffff;
+    background: #fa6e3e;
+    border: 0;
+      margin-right: 27px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float: right;
+    display: block;
+}
+#contact-form input[type="submit"]:hover{
+background: #d55427;
+cursor: pointer;
+}
+
+#contact-form p {
+  font-style: italic;
+  text-align: center;
+  color: #666;
+font-size: 80%;
+}
+
+#testimonial  img{
+  float: left;
+  margin-right: 20px;
+
+}
+
+footer #main-footer{
+  text-align: center;
+  border-top: #ccc 1px solid;
+  color: #aaa;
+}
+
+@media(max-width: 960px){
+  #container {
+      width: 80%;
+  }
+  h1{
+    font-size: 32px;
+  }
+  #sub-1, #sub-2 {
+    float: none;
+    width: 100%;
+  }
+  .points li {
+    background: #eee;
+    padding: 8px;
+     -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px
+  }
+  #testimonial img{
+      float: none;
+      margin: auto;
+      display: block;
+      margin-bottom: 20px;
+  }
+}
+
+
+@media(max-width: 568px){
+  h1{
+    font-size: 22px;
+  }
+}

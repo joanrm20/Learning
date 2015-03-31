@@ -1,0 +1,22 @@
+{
+  "name": "pacman",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joanrm20/Learning",
+  "description": "Pacman game - reactive - learning",
+  "authors": [
+    "Jose Ramirez - from tutorial"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bacon": "~0.7.53",
+    "unicodetiles.js": "tapio/unicodetiles.js",
+    "jquery": "~2.1.3"
+  }
+}
