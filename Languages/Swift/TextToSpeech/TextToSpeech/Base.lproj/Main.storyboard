@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TextToSpeech" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a new text here...." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CMk-Ss-ana">
+                                <rect key="frame" x="96" y="28" width="371" height="111"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-YN-jcl">
+                                <rect key="frame" x="209" y="377" width="145" height="145"/>
+                                <state key="normal" backgroundImage="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSpeech:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5I-aw-U0A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CMk-Ss-ana" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="R3G-hW-hXy"/>
+                            <constraint firstItem="0AM-YN-jcl" firstAttribute="top" secondItem="CMk-Ss-ana" secondAttribute="bottom" constant="238" id="Xmd-lr-J0M"/>
+                            <constraint firstItem="0AM-YN-jcl" firstAttribute="centerX" secondItem="CMk-Ss-ana" secondAttribute="centerX" id="fGL-h2-3e8"/>
+                            <constraint firstItem="CMk-Ss-ana" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="hM6-v5-9YU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CMk-Ss-ana" secondAttribute="trailing" constant="117" id="ha7-S0-1gD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0AM-YN-jcl" secondAttribute="bottom" constant="78" id="oay-xR-mBq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textToRead" destination="CMk-Ss-ana" id="8Kc-vY-AHx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Button" width="145" height="145"/>
+    </resources>
+</document>
