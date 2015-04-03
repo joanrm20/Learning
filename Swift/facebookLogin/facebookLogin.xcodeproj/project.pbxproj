@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25D4D26C1ACE64FE000F98EA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D4D26B1ACE64FE000F98EA /* FBSDKCoreKit.framework */; };
+		25D4D3CF1ACE7DDF000F98EA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D4D3CE1ACE7DDF000F98EA /* FBSDKLoginKit.framework */; };
 		25D8EE581ACDC5560025B221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8EE571ACDC5560025B221 /* AppDelegate.swift */; };
 		25D8EE5A1ACDC5560025B221 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D8EE591ACDC5560025B221 /* ViewController.swift */; };
 		25D8EE5D1ACDC5560025B221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D8EE5B1ACDC5560025B221 /* Main.storyboard */; };
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25D4D26B1ACE64FE000F98EA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		25D4D3CD1ACE7160000F98EA /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		25D4D3CE1ACE7DDF000F98EA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		25D8EE521ACDC5560025B221 /* facebookLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebookLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D8EE561ACDC5560025B221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25D8EE571ACDC5560025B221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D4D3CF1ACE7DDF000F98EA /* FBSDKLoginKit.framework in Frameworks */,
+				25D4D26C1ACE64FE000F98EA /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,8 @@
 		25D8EE491ACDC5560025B221 = {
 			isa = PBXGroup;
 			children = (
+				25D4D3CE1ACE7DDF000F98EA /* FBSDKLoginKit.framework */,
+				25D4D26B1ACE64FE000F98EA /* FBSDKCoreKit.framework */,
 				25D8EE541ACDC5560025B221 /* facebookLogin */,
 				25D8EE6A1ACDC5560025B221 /* facebookLoginTests */,
 				25D8EE531ACDC5560025B221 /* Products */,
@@ -90,6 +99,7 @@
 		25D8EE551ACDC5560025B221 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25D4D3CD1ACE7160000F98EA /* Bridge-Header.h */,
 				25D8EE561ACDC5560025B221 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -293,6 +303,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -329,6 +340,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -338,9 +350,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/joseramirez/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = facebookLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "facebookLogin/Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -348,9 +365,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/joseramirez/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = facebookLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "facebookLogin/Bridge-Header.h";
 			};
 			name = Release;
 		};
@@ -369,6 +391,7 @@
 				INFOPLIST_FILE = facebookLoginTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/facebookLogin.app/facebookLogin";
 			};
 			name = Debug;
@@ -384,6 +407,7 @@
 				INFOPLIST_FILE = facebookLoginTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/facebookLogin.app/facebookLogin";
 			};
 			name = Release;
@@ -407,6 +431,7 @@
 				25D8EE731ACDC5560025B221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25D8EE741ACDC5560025B221 /* Build configuration list for PBXNativeTarget "facebookLoginTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +440,7 @@
 				25D8EE761ACDC5560025B221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
