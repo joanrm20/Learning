@@ -1,0 +1,19 @@
+{
+  "name": "gulp_tasks",
+  "version": "0.0.1",
+  "description": "Gulp tasks sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-util": "^3.0.4",
+    "jshint-stylish": "^1.0.1"
+  }
+}
