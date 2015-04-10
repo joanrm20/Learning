@@ -5,6 +5,7 @@
 *.swp
 *.lock
 profile
+node_modules
 Languages/JS/Bacon.js/pacman/bower_components
 
 ####
