@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Volunteer Events</title>
+</head>
+<body>
+
+<h1>Event Signup</h1>
+
+<div id="contacts"></div>
+<div id="coupon"></div>
+<div id="total"></div>
+
+<script type="text/javascript" src="vendor/mithril.js"></script>
+<script type="text/javascript" src="src/ext/functions.js"></script>
+
+<script type="text/javascript" src="src/components/contacts/contacts.js"></script>
+<script type="text/javascript" src="src/components/coupon/coupon.js"></script>
+<script type="text/javascript" src="src/components/total/total.js"></script>
+
+<script type="text/javascript">
+  m.module(document.getElementById('contacts'), Contacts);
+</script>
+
+</body>
+</html>
