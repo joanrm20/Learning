@@ -1,0 +1,23 @@
+$fontDiff : (14px/16px);
+
+//mic value units not  allow
+//$container-width: 100%-20px;
+
+//Dynamic colum declaration
+$container-width:100%;
+
+.container {
+  width:  $container-width;
+}
+
+.col-4{
+  width: $container-width / 4;
+}
+ // Compiles to:
+ // .container {
+ //  width: 100%;
+ // }
+
+ // .col-4 {
+ //     width: 25%;
+ // }

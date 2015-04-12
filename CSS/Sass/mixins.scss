@@ -1,0 +1,14 @@
+@mixin media($queryString) {
+  @media #{queryString}
+  {
+    @content;
+  }
+}
+
+//use
+.container {
+  width: 90%;
+  @include media("(max-width: 767px)") {
+    width: 100%
+  }
+}

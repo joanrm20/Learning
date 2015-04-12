@@ -1,0 +1,17 @@
+$primaryColor: #eeccff;
+$firstValue: 62.5%;
+$firstValue: 24px !default;
+
+
+body {
+  $primaryColor: #ccc !global;
+  background: $primaryColor;
+  font-size: $firstValue;
+}
+
+p {
+  color: $primaryColor;
+}
+
+// When compiled, our paragraph selector's color is #ccc
+//body font size = 62.5
