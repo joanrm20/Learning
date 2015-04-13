@@ -16,4 +16,17 @@ newCar.year = 2016;
 
 console.log(newCar.getInfo());
 
+// ES6 support
+// class Car {
 
+//   constructor(model) {
+//     this.model = model;
+//     this.color = "blue";
+//     this.year = "2015";
+//   }
+
+//   get carInfo() {
+//     return this.model + ' ' + this.year;
+//   }
+
+// }
