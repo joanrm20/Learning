@@ -1,0 +1,38 @@
+$settings: ( maxWidth: 800px,
+                   columns: 12,
+                   margin: 15px,
+                   breakpoints: (
+                    xs: "(max-width: 480px)",
+                    sm: "(max-width: 768px)",
+                    md: "(max-width: 1024px) and (min-width: 481px)",
+                    lg: "(max-width: 1025px) and (min-width: 769px)"
+                    ));
+//mixin
+@mixin renderGridStyles($settings) {
+  $breakpoints: map-get($settings, "breakpoints");
+  @each $key, $breakpoint in $breakpoints {
+    @include media($breakpoint) {}
+  }
+}
+
+@mixin renderGrid($key, $settings) {
+  $i: 1;
+  @while $i <=map-get($settings, "columns") {
+    .col-#{$key}-#{$i} {
+      float: left;
+      width: 100% * i / map-get($settings, "columns");
+    }
+    $i: $i +1 ;
+  }
+}
+
+.container {
+  padding-right: map-get($settings, "margin");
+  padding-left: map-get($settings, "margin");
+  margin-right: auto;
+  margin-left: auto;
+}
+.row{
+  margin-right: map-get($settings, "margin") * -1;
+  margin-left: map-get($settings,"margin") * -1;
+}
