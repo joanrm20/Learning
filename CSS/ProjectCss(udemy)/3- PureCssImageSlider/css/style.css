@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+}
+
+body {
+  font-family: 'Arial', sans serif;
+  background: #455A64;
+}
+
+#container {
+  width: 718px;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ul.thumbs li {
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 9px;
+}
+
+ul.thumbs a {
+  display: block;
+  position: relative;
+  width: 85px;
+  height: 50px;
+  border: 4px solid transparent;
+  font: bold 12px/25px Arial, sans serif;
+  color: #515151;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, .25), inset 1px 1px 0px rgba(0, 0, 0, .15);
+}
+
+ul.thumbs img {
+  border: #333 solid 4px;
+}
+
+ul.slides {
+  overflow: hidden;
+  clear: both;
+  border: #333 solid 4px;
+}
+
+ul.slides,
+ul.slides li,
+ul.slides a,
+ul.slides img {
+  width: 705px;
+  height: 305px;
+  position: relative;
+}
+
+ul.thumbs li a:hover span {
+  position: absolute;
+  z-index: 101;
+  bottom: -30px;
+  left: 0px;
+  display: block;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
+  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, .4);
+  background: #fff;
+  /*Older Browsers*/
+
+  background: -moz-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -webkit-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -o-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #bcbcbc 100%);
+  background: linear-gradient(top, #fff 0%, #bcbcbc 100%);
+}
+
+ul.thumbs li a:hover span:before {
+  width: 0px;
+  height: 0px;
+  border-bottom: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 44px;
+}
+/*Animation for slider*/
+
+@-webkit-keyframes 'slide' {
+  0% {
+    left: -500px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+ul.slides li{
+  position: absolute;
+  z-index: 50;
+}
+
+ul.slides li:target {
+  z-index: 100;
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes 'notTarget' {
+  0% {
+    z-index: 75;
+  }
+  100% {
+    z-index: 75;
+  }
+}
+
+ul.slides li:not(:target) {
+  -webkit-animation-name: notTarget;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}
