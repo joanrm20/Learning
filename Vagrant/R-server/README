@@ -1,0 +1,27 @@
+#Up virtual machine components
+ - vagrant up
+
+# Login into VM
+ - vagrant ssh
+
+# Logout
+ - Ctrl + C
+ - "vagrant halt" shutdown
+
+
+#Install R Studio
+
+- wget http://download2.rstudio.org/rstudio-server-0.99.463-amd64.deb -O rstudio.deb
+- sudo gdebi rstudio.deb
+- sudo adduser rstudio
+
+# Up R studio server
+- To manually stop, start, and restart the server you use the following commands:
+
+  $ sudo rstudio-server stop
+  $ sudo rstudio-server start
+  $ sudo rstudio-server restart
+
+
+# Access R studio from brwoser
+ - http://localhost:8787/
